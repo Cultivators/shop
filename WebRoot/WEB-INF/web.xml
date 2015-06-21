@@ -16,6 +16,12 @@
   <listener>
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
+  <listener>
+  	<listener-class>cn.cultivator.shop.listener.ShopServletContextListener</listener-class>
+  </listener>
+  <listener>
+  	<listener-class>cn.cultivator.shop.listener.ShopHttpSessionListener</listener-class>
+  </listener>  
   
   <filter>
   	<filter-name>struts2</filter-name>
@@ -26,4 +32,27 @@
   <filter-mapping>
   	<filter-name>struts2</filter-name>
   	<url-pattern>*.action</url-pattern>
-  </filter-mapping></web-app>
+  </filter-mapping>
+  
+  	<filter>
+  		<filter-name>usersLoginFilter</filter-name>
+  		<filter-class>cn.cultivator.shop.filter.UsersLoginFilter</filter-class>
+  	</filter>
+  	<filter-mapping>
+  		<filter-name>usersLoginFilter</filter-name>
+  		<url-pattern>/users/*</url-pattern>
+  	</filter-mapping>
+  
+  <filter>
+    <filter-name>characterEncodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>characterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  </web-app>

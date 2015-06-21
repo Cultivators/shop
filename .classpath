@@ -10,8 +10,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate3.6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring3.0"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/struts2"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/struts_spring"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/cache"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/struts-json"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/struts2.1"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.0.0-beta-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/springcore"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>

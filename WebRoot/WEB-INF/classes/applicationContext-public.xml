@@ -12,17 +12,19 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 	
-	<tx:advice id="advice" transaction-manager="transactionManager">
+	 <!-- 4 配置事务通知: 事务由事务管理器提供 -->
+	 <tx:advice id="advice" transaction-manager="transactionManager">
 	 	<tx:attributes>
 	 		<tx:method name="save*" propagation="REQUIRED"/>
 	 		<tx:method name="delete*" propagation="REQUIRED"/>
 	 		<tx:method name="update*" propagation="REQUIRED"/>
 	 		<tx:method name="*" propagation="NEVER" read-only="true"/>
 	 	</tx:attributes>
-	</tx:advice>
-	
-	<aop:config>
-		<aop:pointcut expression="execution(* cn.cultivator.shop.service.impl.*.*(..))" id="pointcut"/>
-		<aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
-	</aop:config>
+	 </tx:advice>
+	 
+	 <!-- 5: 切入表达式: 配置运行的时候*包的*类切入通知 -->
+	 <aop:config>
+	 	<aop:pointcut expression="execution(* cn.cultivator.shop.service.impl.*.*(..))" id="pointcut"/>
+	 	<aop:advisor advice-ref="advice" pointcut-ref="pointcut"/>
+	 </aop:config>
 </beans>

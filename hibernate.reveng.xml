@@ -2,8 +2,44 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-<table name="category" catalog="shop"
-	class="cn.cultivator.shop.pojo.Catagory">
+	<table name="category" catalog="shop"
+		class="cn.cultivator.shop.pojo.Category">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="account" catalog="shop"
+		class="cn.cultivator.shop.pojo.Account">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="goods" catalog="shop"
+		class="cn.cultivator.shop.pojo.Goods">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="forder" catalog="shop"
+		class="cn.cultivator.shop.pojo.Forder">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="sorder" catalog="shop"
+		class="cn.cultivator.shop.pojo.Sorder">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="status" catalog="shop"
+		class="cn.cultivator.shop.pojo.Status">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="users" catalog="shop"
+	class="cn.cultivator.shop.pojo.Users">
 	<primary-key>
 		<generator class="native"></generator>
 	</primary-key>

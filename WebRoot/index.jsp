@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -19,11 +20,47 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
   </head>
-  
+  	<table width="1300" height="370" border="1">
+  		<c:forEach items="${applicationScope.bigList}" varStatus="num" var="list">
+	  		<tr>
+	  			<td colspan="4">
+	  				${list[0].category.ctype}
+	  			</td>
+	  		</tr>
+	  		<tr>
+				<c:forEach items="${list}" var="goods">
+					<td width="260">
+						<table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td>
+									<img src="image/${goods.gpic}">
+								</td>
+							</tr>
+							<tr>
+								<td>
+									${goods.gname}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									${goods.gprice}
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<c:url value="${pageContext.request.contextPath}/goodsAction_detail.action" var="get">
+										<c:param name="gid" value="${goods.gid}"></c:param>
+									</c:url>
+									<a href="${get}">详细</a>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</c:forEach>
+			</tr>
+		</c:forEach>
+  	</table>
   <body>
-	<a href="/shop/testAction_testssh.action">Struts测试</a> 
-	<form action="${pageContext.request.contextPath}/testAction_testssh.action" method="post">
-		<input type="submit" value="提交"/>
-	</form>   
+	  
   </body>
 </html>

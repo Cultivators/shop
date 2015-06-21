@@ -17,10 +17,20 @@
 	 	<property name="sessionFactory" ref="sessionFactory" />
 	 </bean>
 	 
-	 <bean id="catagoryServiceImpl" class="cn.cultivator.shop.service.impl.CatagoryServiceImpl">
+	 <bean id="baseService" class="cn.cultivator.shop.service.impl.BaseServiceImpl" lazy-init="true">
 	 	<property name="hibernateTemplate" ref="hibernateTemplate"></property>
 	 </bean>
-	 
-	 
-	 
+	 <bean id="accountService" class="cn.cultivator.shop.service.impl.AccountServiceImpl" parent="baseService"></bean>
+	 <bean id="categoryService" class="cn.cultivator.shop.service.impl.CategoryServiceImpl" parent="baseService"></bean>
+	 <bean id="goodsService" class="cn.cultivator.shop.service.impl.GoodsServiceImpl" parent="baseService"></bean>
+	 <bean id="fileUploadUtil" class="cn.cultivator.shop.util.FileUploadUtil">
+	 	<property name="filepath" value="C:\Users\jack\Workspaces\MyEclipse 10\shop\WebRoot\image"></property>
+	 </bean>
+	 <bean id="shopTimerTask" class="cn.cultivator.shop.util.ShopTimerTask">
+	 	<property name="categoryService" ref="categoryService"></property>
+	 	<property name="goodsService" ref="goodsService"></property>
+	 </bean>
+	 <bean id="sorderService" class="cn.cultivator.shop.service.impl.SorderServiceImpl" parent="baseService"></bean>
+	 <bean id="forderService" class="cn.cultivator.shop.service.impl.ForderServiceImpl" parent="baseService"></bean>
+	 <bean id="usersService" class="cn.cultivator.shop.service.impl.UsersServiceImpl" parent="baseService"></bean>
 </beans>

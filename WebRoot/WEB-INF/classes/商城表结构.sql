@@ -1,5 +1,5 @@
 drop database if exists shop;
-create database shop;
+create database shop default character set utf8;
 use shop;
 /*删除管理员表*/
 drop table if exists account;
